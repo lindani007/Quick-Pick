@@ -147,6 +147,7 @@ Planned improvements:
 - Configurable container names and retention policies
 - Retry and transient-fault handling for blob operations
 - Authentication and authorization for APIs
+- Payment Intergration
 
 ---
 
@@ -179,6 +180,7 @@ Repository: https://github.com/lindani007/Quick-Pick.git
 - .NET and .NET MAUI teams
 
 - Any third-party libraries used throughout the projects
+
 
 
 
