@@ -92,6 +92,11 @@ Security notes:
 
 - QuickPick_Customer — customer-facing app (browse items, place orders). Integrates with APIs to fetch product data and images.
 	- This is the page that you land in when you start QuickPick_Customer app.
+   
+
+https://github.com/user-attachments/assets/bcf7bff1-4e11-48f1-b54e-098a522d5239
+
+
 	- The app allows customers to browse products by aisle, add items to their cart, place orders for in-store pickup.
 	- The app uses QuickPickDBApi to fetch product data and submit orders.
 	- The app uses SignalR to receive real-time order status updates.
@@ -158,4 +163,5 @@ Open an issue in this repository for bugs or feature requests. Add maintainers' 
 - .NET and .NET MAUI teams
 
 - Any third-party libraries used throughout the projects
+
 
