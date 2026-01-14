@@ -31,7 +31,7 @@ Follow these steps to run the project locally for development.
 
 1. Clone the repository:
    ```bash
-   git clone <repo-url>
+   git clone <https://github.com/lindani007/Quick-Pick.git>
    cd <repo-folder>
    ```
 2. Open the solution in Visual Studio 2026 (recommended for MAUI) or use the `dotnet` CLI.
@@ -156,4 +156,5 @@ Open an issue in this repository for bugs or feature requests. Add maintainers' 
 ## Acknowledgments
 - Azure SDK (`Azure.Storage.Blobs`)
 - .NET and .NET MAUI teams
+
 - Any third-party libraries used throughout the projects
