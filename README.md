@@ -23,6 +23,7 @@ The repo intentionally does not include secrets. Credentials previously removed 
 - .NET MAUI (client apps)
 - SignalR for real‑time messaging
 - System.Text.Json
+- MicroCharts.MAUI
 
 ---
 
@@ -178,6 +179,7 @@ Repository: https://github.com/lindani007/Quick-Pick.git
 - .NET and .NET MAUI teams
 
 - Any third-party libraries used throughout the projects
+
 
 
 
