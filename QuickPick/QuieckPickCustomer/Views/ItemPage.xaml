@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuickPick.QuieckPickCustomer.Views.ItemPage"
+             xmlns:mvvm="clr-namespace:QuickPick.QuieckPickCustomer.ViewModels"
+             xmlns:vm="clr-namespace:QuickPick.QuieckPickCustomer.Models"
+             Title="ItemPage" x:DataType="mvvm:ChooseAiselViewModel"
+             BackgroundColor="WhiteSmoke">
+    <ScrollView>
+        <StackLayout Spacing="20" Padding="20">
+            <HorizontalStackLayout Spacing="20" HorizontalOptions="End">
+                <Border BackgroundColor="White" WidthRequest="75" HorizontalOptions="End">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="15"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                          Opacity="0.5"
+                          Radius="10"
+                          Offset="10,10" />
+                    </Border.Shadow>
+                    <StackLayout Spacing="10" WidthRequest="75" HeightRequest="75"  HorizontalOptions="Center">
+                        <Label Text="Total" FontSize="20" FontAttributes="Bold"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        <Label Text="{Binding TotalOrdered,StringFormat='R {0:N2}'}" FontSize="15" x:Name="lnltotal" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    </StackLayout>
+                </Border>
+                <Border BackgroundColor="White" WidthRequest="75" HorizontalOptions="End">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="15"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                          Opacity="0.5"
+                          Radius="10"
+                          Offset="10,10" />
+                    </Border.Shadow>
+                    <StackLayout Spacing="10" WidthRequest="75" HeightRequest="75"  HorizontalOptions="Center">
+                        <Label Text="Items" FontSize="20" FontAttributes="Bold"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        <Label Text="{Binding Quantity}" FontSize="15" x:Name="lblItems" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    </StackLayout>
+                </Border>
+                <Border BackgroundColor="White" WidthRequest="75" HorizontalOptions="End">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="15"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                          Opacity="0.5"
+                          Radius="10"
+                          Offset="10,10" />
+                    </Border.Shadow>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoToCartCommand}"/>
+                    </Border.GestureRecognizers>
+                    <StackLayout WidthRequest="75" HeightRequest="75"  HorizontalOptions="Center">
+                        <Label Text="Cart" FontSize="20" FontAttributes="Bold"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoToCartCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Image Source="carti.webp" HeightRequest="50" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoToCartCommand}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                </Border>
+            </HorizontalStackLayout>
+            <Label Text="{Binding ItemName}" FontSize="Header" FontAttributes="Bold" HorizontalOptions="Center">
+                <Label.Shadow>
+                    <Shadow Brush="Black"
+                      Opacity="0.5"
+                      Radius="10"
+                      Offset="10,10" />
+                </Label.Shadow>
+            </Label>
+            <Border WidthRequest="500">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="30"/>
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Offset="10,10"
+                            Opacity="0.5"
+                            Brush="Black"
+                            Radius="10"/>
+                </Border.Shadow>
+                <Image Source="{Binding ItemImageUrl}" WidthRequest="500" VerticalOptions="Start"/>
+            </Border>
+            <Label Text="{Binding Discription}" FontSize="30" HorizontalOptions="Center">
+                <Label.Shadow>
+                    <Shadow Brush="Black"
+                          Opacity="0.5"
+                          Radius="10"
+                          Offset="10,10" />
+                </Label.Shadow>
+            </Label>
+            <Label Text="{Binding Price, StringFormat='R {0:N2}'}" FontSize="30" HorizontalOptions="Center">
+                <Label.Shadow>
+                    <Shadow Brush="Black"
+              Opacity="0.5"
+              Radius="10"
+              Offset="10,10" />
+                </Label.Shadow>
+            </Label>
+            <Border WidthRequest="395">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="25"/>
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Brush="Black"
+                       Opacity="0.5"
+                       Radius="10"
+                       Offset="10,10" />
+                </Border.Shadow>
+                <StackLayout Padding="10" BackgroundColor="White">
+                    <Label Text="Quantity" FontSize="20"/>
+                    <Border WidthRequest="370">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20"/>
+                        </Border.StrokeShape>
+                        <Entry WidthRequest="{OnPlatform Android='300', iOS='300', Default='370'}" HorizontalTextAlignment="Center" Keyboard="Numeric"  Text="{Binding ItemQuantity}"/>
+                    </Border>
+                    <Label Text="{Binding EmptyQuantity}" TextColor="Red">
+                        <Label.Shadow>
+                            <Shadow Opacity="0.5"
+                                    Offset="10,10"
+                                    Radius="10"
+                                    Brush="Black"/>
+                        </Label.Shadow>
+                    </Label>
+                </StackLayout>
+            </Border>
+            <Border WidthRequest="{OnPlatform Android='400', iOS='400', Default='550'}">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="25"/>
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Brush="Black"
+                      Opacity="0.5"
+                      Radius="10"
+                      Offset="10,10" />
+                </Border.Shadow>
+                <Button TextColor="White" BackgroundColor="#66BB6A" Text="Add To Basket" FontAttributes="Bold" FontSize="30" 
+                      WidthRequest="{OnPlatform Android='440', iOS='440', Default='550'}" HorizontalOptions="Center"
+                      Command="{Binding AddToCartCommand}" />
+            </Border>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

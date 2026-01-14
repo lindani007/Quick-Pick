@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuickPick_Customer.QuieckPickCustomer.Views.ChooseAisle"
+             xmlns:mvvm="clr-namespace:QuickPick_Customer.QuieckPickCustomer.ViewModels"
+             xmlns:vm="clr-namespace:QuickPick_Customer.QuieckPickCustomer.Models"
+             Title="ChooseAisle" BackgroundColor="WhiteSmoke"
+             x:DataType="mvvm:ChooseAiselViewModel">
+    <ScrollView>
+        <StackLayout Spacing="10" Padding="20">
+            <HorizontalStackLayout Spacing="20" HorizontalOptions="End">
+                <Border BackgroundColor="White" WidthRequest="75" HorizontalOptions="End">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="15"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                         Opacity="0.5"
+                         Radius="10"
+                         Offset="10,10" />
+                    </Border.Shadow>
+                    <StackLayout Spacing="10" WidthRequest="75" HeightRequest="75"  HorizontalOptions="Center">
+                        <Label Text="Total" FontSize="20" FontAttributes="Bold"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        <Label Text="{Binding TotalOrdered,StringFormat='R {0:N2}'}" FontSize="15" x:Name="lnltotalAisle" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    </StackLayout>
+                </Border>
+                <Border BackgroundColor="White" WidthRequest="75" HorizontalOptions="End">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="15"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                         Opacity="0.5"
+                         Radius="10"
+                         Offset="10,10" />
+                    </Border.Shadow>
+                    <StackLayout Spacing="10" WidthRequest="75" HeightRequest="75"  HorizontalOptions="Center">
+                        <Label Text="Items" FontSize="20" FontAttributes="Bold"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        <Label Text="{Binding Quantity}" FontSize="15" x:Name="lblItemsAisle" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    </StackLayout>
+                </Border>
+                <Border BackgroundColor="White" WidthRequest="75" HorizontalOptions="End">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="15"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                         Opacity="0.5"
+                         Radius="10"
+                         Offset="10,10" />
+                    </Border.Shadow>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoToCartCommand}"/>
+                    </Border.GestureRecognizers>
+                    <StackLayout WidthRequest="75" HeightRequest="75"  HorizontalOptions="Center">
+                        <Label Text="Cart" FontSize="20" FontAttributes="Bold"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoToCartCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Image Source="carti.webp" HeightRequest="50" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoToCartCommand}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                </Border>
+            </HorizontalStackLayout>
+            <Label Text="Welcome To Aisles" FontSize="24" HorizontalOptions="Center">
+                <Label.Shadow>
+                    <Shadow Opacity="0.5"
+                 Brush="Black"
+                 Offset="10,10"
+                 Radius="10"/>
+                </Label.Shadow>
+            </Label>
+            <Border WidthRequest="{OnPlatform Android='350', iOS='350', Default='450'}" BackgroundColor="White" HorizontalOptions="Center">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"/>
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Brush="Black"
+             Opacity="0.5"
+             Offset="10,10"
+             Radius="10"/>
+                </Border.Shadow>
+                <Entry Placeholder="Search Aisle" Text="{Binding SearchAisle}" FontSize="30" HorizontalOptions="Center"
+                    WidthRequest="450" HorizontalTextAlignment="Center"/>
+            </Border>
+            <Label Text="Select an aisle you want to go to" FontSize="36" FontAttributes="Bold" HorizontalOptions="Center">
+                <Label.Shadow>
+                    <Shadow Opacity="0.5"
+          Brush="Black"
+          Offset="10,10"
+          Radius="10"/>
+                </Label.Shadow>
+            </Label>
+            <Border StrokeThickness="0" BackgroundColor="White">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"/>
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Opacity="0.5"
+              Brush="Black"
+              Offset="10,10"
+              Radius="10"/>
+                </Border.Shadow>
+                <CollectionView ItemsLayout="{OnPlatform Android='VerticalGrid,1', iOS='VerticalGrid,1', Default='VerticalGrid,3'}" BackgroundColor="WhiteSmoke" 
+                                SelectionMode="Single" SelectedItem="{Binding SelectedAisle}"
+                                SelectionChangedCommand="{Binding GetSelectedtItemsForAisleCommand}"
+                                ItemsSource="{Binding AisleCollection}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="vm:Aisle">
+                            <StackLayout Spacing="20" Padding="10" HorizontalOptions="Center">
+                                <Border StrokeThickness="0" BackgroundColor="White" WidthRequest="350" HorizontalOptions="Start">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="20"/>
+                                    </Border.StrokeShape>
+                                    <Border.Shadow>
+                                        <Shadow Opacity="0.5"
+                                         Brush="Black"
+                                         Offset="10,10"
+                                         Radius="10"/>
+                                    </Border.Shadow>
+                                    <StackLayout HorizontalOptions="Start" Spacing="10" Padding="10" WidthRequest="{OnPlatform Android='300',iOS='300', Default='340'}" Orientation="Horizontal">
+                                        <Border HorizontalOptions="Start">
+                                            <Border.StrokeShape>
+                                                <RoundRectangle CornerRadius="25"/>
+                                            </Border.StrokeShape>
+                                            <Image Source="{Binding ImageSourceUrl}" WidthRequest="{OnPlatform Android='140', iOS='140', Default='200'}" HeightRequest="{OnPlatform Android='120', iOS='120', Default='200'}" Aspect="AspectFill"/>
+                                        </Border>
+                                        <StackLayout Spacing="10" WidthRequest="150" VerticalOptions="Center">
+                                            <Label Text="{Binding AisleName}" FontSize="24" FontAttributes="Bold"/>
+                                            <Label Text="{Binding AisleDescription}" FontSize="18"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Border>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Border>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

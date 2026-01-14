@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuickPick_Employye_Packing.QuickPick_Empleyee_Packing_Folder.Views.Login"
+             xmlns:mvvm="clr-namespace:QuickPick_Employye_Packing.QuickPick_Empleyee_Packing_Folder.ViewModels"
+             Title="Login" BackgroundColor="WhiteSmoke" x:DataType="mvvm:OrdersViewModel">
+    <ScrollView>
+        <Border HorizontalOptions="Center" BackgroundColor="White">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="30"/>
+            </Border.StrokeShape>
+            <Border.Shadow>
+                <Shadow Opacity="0.5"
+                        Offset="10,10"
+                        Radius="10"
+                        Brush="Black"/>
+            </Border.Shadow>
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="20" Padding="15">
+                <Label Text="Quick Pick" FontSize="Header" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"/>
+                <HorizontalStackLayout Spacing="15" Padding="10">
+                    <Label Text="Employee ID" FontSize="30"/>
+                    <Entry Placeholder="Employee ID" WidthRequest="250" FontSize="30" Text="{Binding EmployeeId}"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="50" Padding="10">
+                    <Label Text="Password" FontSize="30"/>
+                    <Entry Placeholder="Password" IsPassword="True" WidthRequest="250" FontSize="30" Text="{Binding Password}"/>
+                </HorizontalStackLayout>
+                <Button Text="Login" BackgroundColor="LimeGreen" FontSize="30" WidthRequest="200" 
+                        HorizontalOptions="Center" Command="{Binding LoginEmployeeCommand}"/>
+            </StackLayout>
+        </Border>
+    </ScrollView>
+</ContentPage>

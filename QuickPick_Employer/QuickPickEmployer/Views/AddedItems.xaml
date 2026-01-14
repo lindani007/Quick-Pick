@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuickPick_Employer.QuickPickEmployer.Views.AddedItems"
+             xmlns:mvvm="clr-namespace:QuickPick_Employer.QuickPickEmployer.ViewModel"
+             xmlns:vm ="clr-namespace:QuickPick_Employer.QuickPickEmployer.Models"
+             Title="Coose Aisle"  BackgroundColor="WhiteSmoke"
+             x:DataType="mvvm:ItemViewModel" x:Name="PageRoot" Loaded="PageRoot_Loaded">
+    <ScrollView>
+        <StackLayout Spacing="20" Padding="15">
+            <Label Text="Aisles" FontSize="40" FontAttributes="Bold" HorizontalOptions="Center">
+                <Label.Shadow>
+                    <Shadow Brush="Black"
+            Opacity="0.5"
+            Radius="10"
+            Offset="10,10" />
+                </Label.Shadow>
+            </Label>
+            <Border WidthRequest="450" HorizontalOptions="Center" BackgroundColor="White">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"/>
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Brush="Black"
+                    Opacity="0.5"
+                    Radius="10"
+                    Offset="10,10"/>
+                </Border.Shadow>
+                <Entry Placeholder="Search Aisle" Text="{Binding SearchAisle}" FontSize="30" HorizontalOptions="Center"
+                   WidthRequest="450" HorizontalTextAlignment="Center"/>
+            </Border>
+            <Label Text="Select An Aisle You Want To View It Items" FontSize="30" HorizontalOptions="Center">
+                <Label.Shadow>
+                    <Shadow Brush="Black"
+                     Opacity="0.5"
+                     Radius="10"
+                     Offset="10,10" />
+                </Label.Shadow>
+            </Label>
+            <Label Text="{Binding EmptyItems}" FontAttributes="Bold" FontSize="20">
+                <Label.Shadow>
+                    <Shadow Brush="Black"
+                         Opacity="0.5"
+                         Radius="10"
+                         Offset="10,10" />
+                </Label.Shadow>
+            </Label>
+            <CollectionView ItemsLayout="VerticalGrid,3" 
+                        ItemsSource="{Binding AisleCollection}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="vm:Aisle">
+                        <Border BackgroundColor="White">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="25"/>
+                            </Border.StrokeShape>
+                            <Border.Shadow>
+                                <Shadow Brush="Black"
+                            Opacity="0.5"
+                            Radius="10"
+                            Offset="10,10" />
+                            </Border.Shadow>
+                            <StackLayout Spacing="10" Padding="15">
+                                <StackLayout Spacing="10" Padding="15" Orientation="Horizontal">
+                                    <Border StrokeThickness="0">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="20"/>
+                                        </Border.StrokeShape>
+                                        <Image Source="{Binding ImageSourceUrl}" HeightRequest="150" WidthRequest="250" Aspect="AspectFill"/>
+                                    </Border>
+                                    <StackLayout VerticalOptions="Center" WidthRequest="130">
+                                        <Label Text="{Binding AisleName}" FontSize="24" FontAttributes="Bold"/>
+                                        <Label Text="{Binding AisleDescription}" FontSize="18"/>
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout Spacing="10" HorizontalOptions="Center">
+                                    <StackLayout Spacing="2" VerticalOptions="End" Orientation="Horizontal">
+                                        <Button TextColor="White" BackgroundColor="#66BB6A" Text="Change" FontAttributes="Bold" 
+                                                 WidthRequest="200" Command="{Binding BindingContext.ChangeAisleCommand, Source={x:Reference PageRoot}}"
+                                                 VerticalOptions="End" FontSize="15" CommandParameter="{Binding .}"/>
+                                        <Button TextColor="White" BackgroundColor="#66BB6A" Text="Delete" FontAttributes="Bold"
+                                                WidthRequest="200" Command="{Binding BindingContext.DeleteAisleCommand, Source={x:Reference PageRoot}}"
+                                                VerticalOptions="End" FontSize="15" CommandParameter="{Binding .}"/>
+                                    </StackLayout>
+                                    <Button TextColor="White" BackgroundColor="#66BB6A" Text="Add/ View Items" FontAttributes="Bold"
+                                            WidthRequest="400" Command="{Binding BindingContext.GetSelectedtForItemsAisleCommand, Source={x:Reference PageRoot}}"
+                                            VerticalOptions="End" FontSize="15" CommandParameter="{Binding .}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

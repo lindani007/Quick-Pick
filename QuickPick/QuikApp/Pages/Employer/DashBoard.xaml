@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuickPick.QuikApp.Pages.Employer.DashBoard"
+             Title="DashBoard">
+    <ContentPage Title="Transaction List">
+        <ScrollView>
+            <StackLayout Spacing="10" Padding="10">
+                <Label Text="List Of All Transaction" FontSize="30" 
+                       FontAttributes="Bold" HorizontalOptions="Center"/>
+                <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+                    <RadioButton Content="View Transaction By Order ID" GroupName="ViewBy" FontSize="20" />
+                    <RadioButton Content="View Transaction By Item Name" GroupName="ViewBy" FontSize="20" />
+                </HorizontalStackLayout>
+                <Label Text="Select Which Transaction You Would Like To View" HorizontalOptions="Center"
+                       FontSize="20" FontAttributes="Bold"/>
+                <Grid x:Name="transactionsByOrderId" IsVisible="False">
+                    <StackLayout Spacing="20">
+                        <Border WidthRequest="450" HorizontalOptions="Center">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="20"/>
+                            </Border.StrokeShape>
+                            <Entry Placeholder="Search Order ID" FontSize="30" HorizontalOptions="Center"
+                                   WidthRequest="450" HorizontalTextAlignment="Center" x:Name="orderIdSearchEntry"/>
+                        </Border>
+                        <Label IsVisible="True" Text="There are no transaction to display😢!!!" FontSize="30" 
+                               FontAttributes="Bold" HorizontalOptions="Center" x:Name="lbloderdsEmpty_Total"/>
+                        <Label Text="Select an Order you want to view it transactions." FontSize="30" HorizontalOptions="Center"/>
+                        <CollectionView>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Spacing="10" Padding="15" Orientation="Horizontal">
+                                        <StackLayout Spacing="10">
+                                            <Label FontSize="24" FontAttributes="Bold"/>
+                                            <Label FontSize="18"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </Grid>
+                <Grid x:Name="viewByIteGrid" IsVisible="True">
+                    <StackLayout Spacing="10">
+                        <Border WidthRequest="450" HorizontalOptions="Center">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="20"/>
+                            </Border.StrokeShape>
+                            <Entry Placeholder="Search Item" FontSize="30" HorizontalOptions="Center"
+                                   WidthRequest="450" HorizontalTextAlignment="Center" x:Name="itemSearchEntry"/>
+                        </Border>
+                        <Label Text="Select an item you want to view it transactions" FontSize="30" HorizontalOptions="Center"/>
+                        <Label IsVisible="True" Text="There are no transaction to display😢!!!" FontSize="30" 
+                                FontAttributes="Bold" HorizontalOptions="Center" x:Name="lblitemEmpty_Total"/>
+                        <CollectionView>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Spacing="10" Padding="15" Orientation="Horizontal">
+                                        <Image HeightRequest="200" Aspect="AspectFill"/>
+                                        <StackLayout Spacing="10">
+                                            <Label FontSize="24" FontAttributes="Bold"/>
+                                            <Label FontSize="18"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage>
+    <ContentPage Title="Today's Transaction">
+        <ScrollView>
+            <StackLayout Spacing="10" Padding="10">
+                <Label Text="List Of All Transaction" FontSize="30" 
+                   FontAttributes="Bold" HorizontalOptions="Center"/>
+                <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+                    <RadioButton Content="View Transaction By Order ID" GroupName="ViewBy" FontSize="20" />
+                    <RadioButton Content="View Transaction By Item Name" GroupName="ViewBy" FontSize="20" />
+                </HorizontalStackLayout>
+                <Grid x:Name="today_transactionsByOrderId" IsVisible="False">
+                    <StackLayout Spacing="20">
+                        <Border WidthRequest="450" HorizontalOptions="Center">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="20"/>
+                            </Border.StrokeShape>
+                            <Entry Placeholder="Search Order ID" FontSize="30" HorizontalOptions="Center"
+                               WidthRequest="450" HorizontalTextAlignment="Center" x:Name="today_orderIdSearchEntry"/>
+                        </Border>
+                       <Label Text="Select an Order you want to view it transactions." FontSize="30" HorizontalOptions="Center"/>
+                        <Label IsVisible="True" Text="There are no today's transaction for now😢!!!" FontSize="30" 
+                                FontAttributes="Bold" HorizontalOptions="Center" x:Name="lbltodayoderdsEmpty_Total"/>
+                        <CollectionView>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Spacing="10" Padding="15" Orientation="Horizontal">
+                                        <StackLayout Spacing="10">
+                                            <Label FontSize="24" FontAttributes="Bold"/>
+                                            <Label FontSize="18"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                        <Label Text="Total Todays's Transaction : R0,00" FontSize="30" 
+                               FontAttributes="Bold" HorizontalOptions="Center" x:Name="lbltodayOrders_Total"/>
+                    </StackLayout>
+                </Grid>
+                <Grid x:Name="today_viewByIteGrid" IsVisible="True">
+                    <StackLayout Spacing="10">
+                        <Border WidthRequest="450" HorizontalOptions="Center">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="20"/>
+                            </Border.StrokeShape>
+                            <Entry Placeholder="Search Item" FontSize="30" HorizontalOptions="Center"
+                               WidthRequest="450" HorizontalTextAlignment="Center" x:Name="today_itemSearchEntry"/>
+                        </Border>
+                        <Label Text="Select an item you want to view it transactions" FontSize="30" HorizontalOptions="Center"/>
+                        <Label IsVisible="True" Text="There are no today's transaction for now😢!!!" FontSize="30" 
+                               FontAttributes="Bold" HorizontalOptions="Center" x:Name="lbltodayItemEmpty_Total"/>
+                        <CollectionView>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Spacing="10" Padding="15" Orientation="Horizontal">
+                                        <Image HeightRequest="200" Aspect="AspectFill"/>
+                                        <StackLayout Spacing="10">
+                                            <Label FontSize="24" FontAttributes="Bold"/>
+                                            <Label FontSize="18"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                        <Label Text="Total Todays's Transaction : R0,00" FontSize="30" 
+                               FontAttributes="Bold" HorizontalOptions="Center" x:Name="lbltodayItem_Total"/>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage>
+</TabbedPage>

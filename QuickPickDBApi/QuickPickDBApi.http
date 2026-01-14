@@ -1,0 +1,6 @@
+@QuickPickDBApi_HostAddress = http://localhost:5237
+
+GET {{QuickPickDBApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuickPick.QuickPickEmployer.Views.PayAndGoo"
+             xmlns:mvvm="clr-namespace:QuickPick.QuieckPickCustomer.ViewModels"
+             xmlns:vm="clr-namespace:QuickPick.QuieckPickCustomer.Models"
+             Title="PayAndGoo" x:DataType="mvvm:ChooseAiselViewModel" BackgroundColor="WhiteSmoke">
+    <ScrollView>
+        <StackLayout Spacing="15" Padding="10" HorizontalOptions="Center">
+            <Label Text="Pay And Collect Your Order To The Kiosk" FontAttributes="Bold" FontSize="Title"/>
+            <Border WidthRequest="300">
+                <Border.Shadow>
+                    <Shadow Opacity="0.5"
+                            Offset="10,10"
+                            Radius="10"
+                            Brush="Black"/>
+                </Border.Shadow>
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="30"/>
+                </Border.StrokeShape>
+                <Image Source="image.jpg" WidthRequest="300"/>
+            </Border>
+            <HorizontalStackLayout>
+                <Label Text="You ordered.. :    " FontAttributes="Bold" FontSize="30">
+                    <Label.Shadow>
+                        <Shadow Opacity="0.5"
+                                        Offset="10,10"
+                                        Radius="10"
+                                        Brush="Black"/>
+                    </Label.Shadow>
+                </Label>
+                <Label Text="{Binding Quantity}" FontSize="30" FontAttributes="Bold">
+                    <Label.Shadow>
+                        <Shadow Opacity="0.5"
+                    Offset="10,10"
+                    Radius="10"
+                    Brush="Black"/>
+                    </Label.Shadow>
+                </Label>
+                <Label Text="Items" FontSize="30" FontAttributes="Bold">
+                    <Label.Shadow>
+                        <Shadow Opacity="0.5"
+                    Offset="10,10"
+                    Radius="10"
+                    Brush="Black"/>
+                    </Label.Shadow>
+                </Label>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Subtotal........  :    " FontAttributes="Bold" FontSize="30">
+                    <Label.Shadow>
+                        <Shadow Opacity="0.5"
+                    Offset="10,10"
+                    Radius="10"
+                    Brush="Black"/>
+                    </Label.Shadow>
+                </Label>
+                <Label Text="{Binding SubTotal}" FontSize="30" FontAttributes="Bold">
+                    <Label.Shadow>
+                        <Shadow Opacity="0.5"
+                    Offset="10,10"
+                    Radius="10"
+                    Brush="Black"/>
+                    </Label.Shadow>
+                </Label>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="VAT................  : " FontAttributes="Bold" FontSize="30">
+                    <Label.Shadow>
+                        <Shadow Opacity="0.5"
+                    Offset="10,10"
+                    Radius="10"
+                    Brush="Black"/>
+                    </Label.Shadow>
+                </Label>
+                <Label Text="{Binding Vat}" FontSize="30" FontAttributes="Bold">
+                    <Label.Shadow>
+                        <Shadow Opacity="0.5"
+                    Offset="10,10"
+                    Radius="10"
+                    Brush="Black"/>
+                    </Label.Shadow>
+                </Label>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Tota..............   : " FontAttributes="Bold" FontSize="30">
+                    <Label.Shadow>
+                        <Shadow Opacity="0.5"
+                    Offset="10,10"
+                    Radius="10"
+                    Brush="Black"/>
+                    </Label.Shadow>
+                </Label>
+                <Label Text="{Binding TotalOrdered, StringFormat='R {0:N2}'}" FontSize="30" FontAttributes="Bold">
+                    <Label.Shadow>
+                        <Shadow Opacity="0.5"
+                    Offset="10,10"
+                    Radius="10"
+                    Brush="Black"/>
+                    </Label.Shadow>
+                </Label>
+            </HorizontalStackLayout>
+            <Label Text="Would you like to pay with :  " FontAttributes="Bold" FontSize="40" >
+                <Label.Shadow>
+                    <Shadow Opacity="0.5"
+                    Offset="10,10"
+                    Radius="10"
+                    Brush="Black"/>
+                </Label.Shadow>
+            </Label>
+            <StackLayout Spacing="10" Orientation="{OnPlatform Android='Vertical', iOS='Vertical',Default='Horizontal'}">
+                <Border WidthRequest="{OnPlatform Android='400', iOS='400', Default='550'}">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                                Opacity="0.5"
+                                Radius="10"
+                                Offset="10,10" />
+                    </Border.Shadow>
+                    <Button TextColor="White" BackgroundColor="#66BB6A" Text="Card" FontAttributes="Bold" FontSize="30" 
+                            WidthRequest="{OnPlatform Android='440', iOS='440', Default='550'}" HorizontalOptions="Center"
+                                />
+                </Border>
+                <Label Text="Or" FontSize="30" FontAttributes="Bold"/>
+                <Border WidthRequest="{OnPlatform Android='400', iOS='400', Default='550'}">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                            Opacity="0.5"
+                            Radius="10"
+                            Offset="10,10" />
+                    </Border.Shadow>
+                    <Button TextColor="White" BackgroundColor="#66BB6A" Text="Cash" FontAttributes="Bold" FontSize="30" 
+                                WidthRequest="{OnPlatform Android='440', iOS='440', Default='550'}" HorizontalOptions="Center"
+                                  />
+                </Border>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Order_Distribution.OrderDistribution.Views.OrderVerification"
+             Title="Order Verification" HeightRequest="400" BackgroundColor="WhiteSmoke"
+             xmlns:mvvm="clr-namespace:Order_Distribution.OrderDistribution.ViwewModels"
+             x:DataType="mvvm:OrdersViewModel">
+    <ScrollView>
+        <StackLayout Spacing="15">
+            <Label Text="Order Verification" 
+                   FontSize="30" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" 
+                   Margin="0,40,0,20">
+                <Label.Shadow>
+                    <Shadow Brush="Black"
+                            Opacity="0.5"
+                            Radius="10"
+                            Offset="10,10" />
+                </Label.Shadow>
+            </Label>
+            <Border WidthRequest="395">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="25"/>
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Brush="Black"
+                             Opacity="0.5"
+                             Radius="10"
+                             Offset="10,10" />
+                </Border.Shadow>
+                <StackLayout Padding="10" BackgroundColor="White">
+                    <Label Text="{Binding OrderNumber}" FontSize="20"/>
+                    <Border WidthRequest="370">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20"/>
+                        </Border.StrokeShape>
+                        <Entry Placeholder="{Binding OrderNumber}" WidthRequest="{OnPlatform Android='300', iOS='300', Default='370'}"
+                            HorizontalTextAlignment="Center" IsPassword="True" Keyboard="Numeric"  Text="{Binding Code}" FontSize="20"/>
+                    </Border>
+                </StackLayout>
+            </Border>
+            <Border WidthRequest="{OnPlatform Android='400', iOS='400', Default='550'}">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="25"/>
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Brush="Black"
+          Opacity="0.5"
+          Radius="10"
+          Offset="10,10" />
+                </Border.Shadow>
+                <Button TextColor="White" BackgroundColor="#66BB6A" Text="Verify" FontAttributes="Bold" FontSize="30" 
+          WidthRequest="{OnPlatform Android='440', iOS='440', Default='550'}" HorizontalOptions="Center"
+          Command="{Binding VerifyOderCommand}" />
+            </Border>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

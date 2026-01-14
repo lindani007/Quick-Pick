@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuickPick.QuikApp.Pages.Customer.Isels"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Title="Isels">
+    <ContentPage Title="Choose Aisle" BackgroundColor="WhiteSmoke">
+        <ScrollView>
+            <StackLayout Spacing="10" Padding="20">
+                <HorizontalStackLayout Spacing="20" HorizontalOptions="End">
+                    <Border BackgroundColor="White" WidthRequest="75" HorizontalOptions="End">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="Black"
+                                Opacity="0.5"
+                                Radius="10"
+                                Offset="10,10" />
+                        </Border.Shadow>
+                        <StackLayout Spacing="10" WidthRequest="75" HeightRequest="75"  HorizontalOptions="Center">
+                            <Label Text="Total" FontSize="20" FontAttributes="Bold"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            <Label Text="R0,00" FontSize="15" x:Name="lnltotalAisle" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        </StackLayout>
+                    </Border>
+                    <Border BackgroundColor="White" WidthRequest="75" HorizontalOptions="End">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="Black"
+                                Opacity="0.5"
+                                Radius="10"
+                                Offset="10,10" />
+                        </Border.Shadow>
+                        <StackLayout Spacing="10" WidthRequest="75" HeightRequest="75"  HorizontalOptions="Center">
+                            <Label Text="Items" FontSize="20" FontAttributes="Bold"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            <Label Text="0" FontSize="15" x:Name="lblItemsAisle" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        </StackLayout>
+                    </Border>
+                    <Border BackgroundColor="White" WidthRequest="75" HorizontalOptions="End">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="Black"
+                                Opacity="0.5"
+                                Radius="10"
+                                Offset="10,10" />
+                        </Border.Shadow>
+                        <StackLayout WidthRequest="75" HeightRequest="75"  HorizontalOptions="Center">
+                            <Label Text="Cart" FontSize="20" FontAttributes="Bold"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            <Image Source="carti.webp" HeightRequest="50" />
+                        </StackLayout>
+                    </Border>
+                </HorizontalStackLayout>
+                <Label Text="Welcome To Aisles" FontSize="24" HorizontalOptions="Center">
+                    <Label.Shadow>
+                        <Shadow Opacity="0.5"
+                        Brush="Black"
+                        Offset="10,10"
+                        Radius="10"/>
+                    </Label.Shadow>
+                </Label>
+                <Border WidthRequest="{OnPlatform Android='350', iOS='350', Default='450'}" BackgroundColor="White" HorizontalOptions="Center">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                    Opacity="0.5"
+                    Offset="10,10"
+                    Radius="10"/>
+                    </Border.Shadow>
+                    <Entry Placeholder="Search Aisle" FontSize="30" HorizontalOptions="Center"
+                           WidthRequest="450" HorizontalTextAlignment="Center" x:Name="itemSearchEntry"/>
+                </Border>
+                <Label Text="Select an aisle you want to go to" FontSize="36" FontAttributes="Bold" HorizontalOptions="Center">
+                    <Label.Shadow>
+                        <Shadow Opacity="0.5"
+                 Brush="Black"
+                 Offset="10,10"
+                 Radius="10"/>
+                    </Label.Shadow>
+                </Label>
+                <Border StrokeThickness="0" BackgroundColor="White">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Opacity="0.5"
+                     Brush="Black"
+                     Offset="10,10"
+                     Radius="10"/>
+                    </Border.Shadow>
+                    <CollectionView BackgroundColor="WhiteSmoke" SelectionMode="Single">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Spacing="20" Padding="10" HorizontalOptions="Center">
+                                    <Border StrokeThickness="0" BackgroundColor="White" WidthRequest="350" HorizontalOptions="Start">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="20"/>
+                                        </Border.StrokeShape>
+                                        <Border.Shadow>
+                                            <Shadow Opacity="0.5"
+                                                Brush="Black"
+                                                Offset="10,10"
+                                                Radius="10"/>
+                                        </Border.Shadow>
+                                        <StackLayout HorizontalOptions="Start" Spacing="10" Padding="10" WidthRequest="{OnPlatform Android='300',iOS='300', Default='340'}" Orientation="Horizontal">
+                                            <Border HorizontalOptions="Start">
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="25"/>
+                                                </Border.StrokeShape>
+                                                <Image Source="image.jpg" WidthRequest="{OnPlatform Android='140', iOS='140', Default='200'}" HeightRequest="{OnPlatform Android='120', iOS='120', Default='200'}" Aspect="AspectFill"/>
+                                            </Border>
+                                            <StackLayout Spacing="10" WidthRequest="150" VerticalOptions="Center">
+                                                <Label Text="Drinks" FontSize="24" FontAttributes="Bold"/>
+                                                <Label Text="Refreshments and cold" FontSize="18"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Border>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Border>
+                <Border StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20"/>
+                    </Border.StrokeShape>
+                    <StackLayout Padding="10" Orientation="{OnPlatform Android='Vertical', iOS='Vertical', Default='Horizontal'}" Spacing="20" HorizontalOptions="Center">
+                        <Border StrokeThickness="0" BackgroundColor="White" WidthRequest="350" HorizontalOptions="Start">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="20"/>
+                            </Border.StrokeShape>
+                            <Border.Shadow>
+                              <Shadow Opacity="0.5"
+                                Brush="Black"
+                                Offset="10,10"
+                                Radius="10"/>
+                            </Border.Shadow>
+                            <StackLayout HorizontalOptions="Start" Spacing="10" Padding="10" WidthRequest="{OnPlatform Android='300',iOS='300', Default='340'}" Orientation="Horizontal">
+                                <Border HorizontalOptions="Start">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="25"/>
+                                    </Border.StrokeShape>
+                                    <Image Source="image.jpg" WidthRequest="{OnPlatform Android='140', iOS='140', Default='200'}" HeightRequest="{OnPlatform Android='120', iOS='120', Default='200'}" Aspect="AspectFill"/>
+                                </Border>
+                                <StackLayout Spacing="10" WidthRequest="150" VerticalOptions="Center">
+                                    <Label Text="Drinks" FontSize="24" FontAttributes="Bold"/>
+                                    <Label Text="Refreshments and cold" FontSize="18"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Border>
+                        <Border StrokeThickness="0" BackgroundColor="White" WidthRequest="350" HorizontalOptions="Start">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="20"/>
+                            </Border.StrokeShape>
+                            <Border.Shadow>
+                                <Shadow Opacity="0.5"
+                                    Brush="Black"
+                                    Offset="10,10"
+                                    Radius="10"/>
+                            </Border.Shadow>
+                            <StackLayout HorizontalOptions="Start" Spacing="10" Padding="10" WidthRequest="{OnPlatform Android='300',iOS='300', Default='340'}" Orientation="Horizontal">
+                                <Border HorizontalOptions="Start">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="25"/>
+                                    </Border.StrokeShape>
+                                    <Image Source="image.jpg" WidthRequest="{OnPlatform Android='140', iOS='140', Default='200'}" HeightRequest="{OnPlatform Android='120', iOS='120', Default='200'}" Aspect="AspectFill"/>
+                                </Border>
+                                <StackLayout Spacing="10" WidthRequest="150" VerticalOptions="Center">
+                                    <Label Text="Drinks" FontSize="24" FontAttributes="Bold"/>
+                                    <Label Text="Refreshments and cold" FontSize="18"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Border>
+                        <Border StrokeThickness="0" BackgroundColor="White" WidthRequest="350" HorizontalOptions="Start">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="20"/>
+                            </Border.StrokeShape>
+                            <Border.Shadow>
+                                <Shadow Opacity="0.5"
+                                    Brush="Black"
+                                    Offset="10,10"
+                                    Radius="10"/>
+                            </Border.Shadow>
+                            <StackLayout HorizontalOptions="Start" Spacing="10" Padding="10" WidthRequest="{OnPlatform Android='300',iOS='300', Default='340'}" Orientation="Horizontal">
+                                <Border HorizontalOptions="Start">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="25"/>
+                                    </Border.StrokeShape>
+                                    <Image Source="image.jpg" WidthRequest="{OnPlatform Android='140', iOS='140', Default='200'}" HeightRequest="{OnPlatform Android='120', iOS='120', Default='200'}" Aspect="AspectFill"/>
+                                </Border>
+                                <StackLayout Spacing="10" WidthRequest="150" VerticalOptions="Center">
+                                    <Label Text="Drinks" FontSize="24" FontAttributes="Bold"/>
+                                    <Label Text="Refreshments and cold" FontSize="18"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Border>
+                    </StackLayout>
+                </Border>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage>
+    <ContentPage Title="Add Items To Cart" BackgroundColor="WhiteSmoke">
+        <ScrollView>
+            <StackLayout Spacing="10" Padding="20">
+                <HorizontalStackLayout Spacing="20" HorizontalOptions="End">
+                    <Border BackgroundColor="White" WidthRequest="75" HorizontalOptions="End">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="Black"
+                                Opacity="0.5"
+                                Radius="10"
+                                Offset="10,10" />
+                        </Border.Shadow>
+                        <StackLayout Spacing="10" WidthRequest="75" HeightRequest="75"  HorizontalOptions="Center">
+                            <Label Text="Total" FontSize="20" FontAttributes="Bold"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            <Label Text="R0,00" FontSize="15" x:Name="lnltotalItems" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        </StackLayout>
+                    </Border>
+                    <Border BackgroundColor="White" WidthRequest="75" HorizontalOptions="End">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="Black"
+                                Opacity="0.5"
+                                Radius="10"
+                                Offset="10,10" />
+                        </Border.Shadow>
+                        <StackLayout Spacing="10" WidthRequest="75" HeightRequest="75"  HorizontalOptions="Center">
+                            <Label Text="Items" FontSize="20" FontAttributes="Bold"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            <Label Text="0" FontSize="15" x:Name="lblItemsItems" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        </StackLayout>
+                    </Border>
+                    <Border BackgroundColor="White" WidthRequest="75" HorizontalOptions="End">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="Black"
+                                Opacity="0.5"
+                                Radius="10"
+                                Offset="10,10" />
+                        </Border.Shadow>
+                        <StackLayout WidthRequest="75" HeightRequest="75"  HorizontalOptions="Center">
+                            <Label Text="Cart" FontSize="20" FontAttributes="Bold"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            <Image Source="carti.webp" HeightRequest="50" />
+                        </StackLayout>
+                    </Border>
+                </HorizontalStackLayout>
+                <Label Text="Items" FontSize="24" HorizontalOptions="Center">
+                    <Label.Shadow>
+                        <Shadow Opacity="0.5"
+                     Brush="Black"
+                     Offset="10,10"
+                     Radius="10"/>
+                    </Label.Shadow>
+                </Label>
+                <Border WidthRequest="{OnPlatform Android='350', iOS='350', Default='450'}" BackgroundColor="White" HorizontalOptions="Center">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                 Opacity="0.5"
+                 Offset="10,10"
+                 Radius="10"/>
+                    </Border.Shadow>
+                    <Entry Placeholder="Search Item" FontSize="30" HorizontalOptions="Center"
+                            WidthRequest="{OnPlatform Android='350', iOS='350', Default='450'}" HorizontalTextAlignment="Center" x:Name="itemsSearchEntry"/>
+                </Border>
+                <Label Text="Select an item you want to buy" FontSize="36" FontAttributes="Bold" HorizontalOptions="Center">
+                    <Label.Shadow>
+                        <Shadow Opacity="0.5"
+                              Brush="Black"
+                              Offset="10,10"
+                              Radius="10"/>
+                    </Label.Shadow>
+                </Label>
+                <Border StrokeThickness="0" BackgroundColor="White">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Opacity="0.5"
+                                 Brush="Black"
+                                 Offset="10,10"
+                                 Radius="10"/>
+                    </Border.Shadow>
+                    <CollectionView BackgroundColor="WhiteSmoke" SelectionMode="Single">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Spacing="20" Padding="10" HorizontalOptions="Center">
+                                    <Border StrokeThickness="0" BackgroundColor="White" WidthRequest="350" HorizontalOptions="Start">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="20"/>
+                                        </Border.StrokeShape>
+                                        <Border.Shadow>
+                                            <Shadow Opacity="0.5"
+                                Brush="Black"
+                                Offset="10,10"
+                                Radius="10"/>
+                                        </Border.Shadow>
+                                        <StackLayout HorizontalOptions="Start" Spacing="10" Padding="10" WidthRequest="{OnPlatform Android='300',iOS='300', Default='340'}" Orientation="Horizontal">
+                                            <Border HorizontalOptions="Start">
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="25"/>
+                                                </Border.StrokeShape>
+                                                <Image Source="image.jpg" WidthRequest="{OnPlatform Android='140', iOS='140', Default='200'}" HeightRequest="{OnPlatform Android='120', iOS='120', Default='200'}" Aspect="AspectFill"/>
+                                            </Border>
+                                            <StackLayout Spacing="10" WidthRequest="150" VerticalOptions="Center">
+                                                <Label Text="Drinks" FontSize="24" FontAttributes="Bold"/>
+                                                <Label Text="Refreshments and cold" FontSize="18"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Border>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Border>
+                <Border StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20"/>
+                    </Border.StrokeShape>
+                    <StackLayout Padding="10" Orientation="{OnPlatform Android='Vertical', iOS='Vertical', Default='Horizontal'}" Spacing="20" HorizontalOptions="Center">
+                        <Border StrokeThickness="0" BackgroundColor="White" WidthRequest="350" HorizontalOptions="Start">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="20"/>
+                            </Border.StrokeShape>
+                            <Border.Shadow>
+                                <Shadow Opacity="0.5"
+                 Brush="Black"
+                 Offset="10,10"
+                 Radius="10"/>
+                            </Border.Shadow>
+                            <StackLayout HorizontalOptions="Start" Spacing="10" Padding="10" WidthRequest="{OnPlatform Android='300',iOS='300', Default='340'}" Orientation="Horizontal">
+                                <Border HorizontalOptions="Start">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="25"/>
+                                    </Border.StrokeShape>
+                                    <Image Source="image.jpg" WidthRequest="{OnPlatform Android='140', iOS='140', Default='200'}" HeightRequest="{OnPlatform Android='120', iOS='120', Default='200'}" Aspect="AspectFill"/>
+                                </Border>
+                                <StackLayout Spacing="10" WidthRequest="150" VerticalOptions="Center">
+                                    <Label Text="Drinks" FontSize="24" FontAttributes="Bold"/>
+                                    <Label Text="Refreshments and cold" FontSize="18"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Border>
+                        <Border StrokeThickness="0" BackgroundColor="White" WidthRequest="350" HorizontalOptions="Start">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="20"/>
+                            </Border.StrokeShape>
+                            <Border.Shadow>
+                                <Shadow Opacity="0.5"
+                     Brush="Black"
+                     Offset="10,10"
+                     Radius="10"/>
+                            </Border.Shadow>
+                            <StackLayout HorizontalOptions="Start" Spacing="10" Padding="10" WidthRequest="{OnPlatform Android='300',iOS='300', Default='340'}" Orientation="Horizontal">
+                                <Border HorizontalOptions="Start">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="25"/>
+                                    </Border.StrokeShape>
+                                    <Image Source="image.jpg" WidthRequest="{OnPlatform Android='140', iOS='140', Default='200'}" HeightRequest="{OnPlatform Android='120', iOS='120', Default='200'}" Aspect="AspectFill"/>
+                                </Border>
+                                <StackLayout Spacing="10" WidthRequest="150" VerticalOptions="Center">
+                                    <Label Text="Drinks" FontSize="24" FontAttributes="Bold"/>
+                                    <Label Text="Refreshments and cold" FontSize="18"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Border>
+                        <Border StrokeThickness="0" BackgroundColor="White" WidthRequest="350" HorizontalOptions="Start">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="20"/>
+                            </Border.StrokeShape>
+                            <Border.Shadow>
+                                <Shadow Opacity="0.5"
+                     Brush="Black"
+                     Offset="10,10"
+                     Radius="10"/>
+                            </Border.Shadow>
+                            <StackLayout HorizontalOptions="Start" Spacing="10" Padding="10" WidthRequest="{OnPlatform Android='300',iOS='300', Default='340'}" Orientation="Horizontal">
+                                <Border HorizontalOptions="Start">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="25"/>
+                                    </Border.StrokeShape>
+                                    <Image Source="image.jpg" WidthRequest="{OnPlatform Android='140', iOS='140', Default='200'}" HeightRequest="{OnPlatform Android='120', iOS='120', Default='200'}" Aspect="AspectFill"/>
+                                </Border>
+                                <StackLayout Spacing="10" WidthRequest="150" VerticalOptions="Center">
+                                    <Label Text="Drinks" FontSize="24" FontAttributes="Bold"/>
+                                    <Label Text="Refreshments and cold" FontSize="18"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Border>
+                    </StackLayout>
+                </Border>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage>
+    <ContentPage Title="Store" BackgroundColor="WhiteSmoke">
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="20">
+                <HorizontalStackLayout Spacing="20" HorizontalOptions="End">
+                    <Border BackgroundColor="White" WidthRequest="75" HorizontalOptions="End">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="Black"
+                                Opacity="0.5"
+                                Radius="10"
+                                Offset="10,10" />
+                        </Border.Shadow>
+                        <StackLayout Spacing="10" WidthRequest="75" HeightRequest="75"  HorizontalOptions="Center">
+                            <Label Text="Total" FontSize="20" FontAttributes="Bold"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            <Label Text="R0,00" FontSize="15" x:Name="lnltotal" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        </StackLayout>
+                    </Border>
+                    <Border BackgroundColor="White" WidthRequest="75" HorizontalOptions="End">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="Black"
+                                Opacity="0.5"
+                                Radius="10"
+                                Offset="10,10" />
+                        </Border.Shadow>
+                        <StackLayout Spacing="10" WidthRequest="75" HeightRequest="75"  HorizontalOptions="Center">
+                            <Label Text="Items" FontSize="20" FontAttributes="Bold"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            <Label Text="0" FontSize="15" x:Name="lblItems" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        </StackLayout>
+                    </Border>
+                    <Border BackgroundColor="White" WidthRequest="75" HorizontalOptions="End">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="Black"
+                                Opacity="0.5"
+                                Radius="10"
+                                Offset="10,10" />
+                        </Border.Shadow>
+                        <StackLayout WidthRequest="75" HeightRequest="75"  HorizontalOptions="Center">
+                            <Label Text="Cart" FontSize="20" FontAttributes="Bold"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            <Image Source="carti.webp" HeightRequest="50" />
+                        </StackLayout>
+                    </Border>
+                </HorizontalStackLayout>
+                <Label Text="Coca-Cola Zero Sugar" FontSize="Header" FontAttributes="Bold" HorizontalOptions="Center">
+                    <Label.Shadow>
+                        <Shadow Brush="Black"
+                            Opacity="0.5"
+                            Radius="10"
+                            Offset="10,10" />
+                    </Label.Shadow>
+                </Label>
+                <Image Source="add.png" HeightRequest="300" HorizontalOptions="Center">
+                    <Image.Shadow>
+                        <Shadow Brush="Black"
+                                Opacity="0.5"
+                                Radius="10"
+                                Offset="10,10" />
+                    </Image.Shadow>
+                </Image>
+                <Label Text="Cold And Fresh" FontSize="30" HorizontalOptions="Center">
+                    <Label.Shadow>
+                        <Shadow Brush="Black"
+                                Opacity="0.5"
+                                Radius="10"
+                                Offset="10,10" />
+                    </Label.Shadow>
+                </Label>
+                <Border WidthRequest="395">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                             Opacity="0.5"
+                             Radius="10"
+                             Offset="10,10" />
+                    </Border.Shadow>
+                    <StackLayout Padding="10" BackgroundColor="White">
+                        <Label Text="Quantity" FontSize="20"/>
+                        <Border WidthRequest="370">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="20"/>
+                            </Border.StrokeShape>
+                            <Entry WidthRequest="{OnPlatform Android='300', iOS='300', Default='370'}" HorizontalTextAlignment="Center" Keyboard="Numeric"  Text="1" x:Name="quantityEntry"/>
+                        </Border>
+                    </StackLayout>
+                </Border>
+                <Border WidthRequest="{OnPlatform Android='400', iOS='400', Default='550'}">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                            Opacity="0.5"
+                            Radius="10"
+                            Offset="10,10" />
+                    </Border.Shadow>
+                    <Button TextColor="White" BackgroundColor="#66BB6A" Text="Add To Basket" FontAttributes="Bold" FontSize="30" 
+                            WidthRequest="{OnPlatform Android='440', iOS='440', Default='550'}" HorizontalOptions="Center"
+                             />
+                </Border>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage>
+    <ContentPage Title="Cart">
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="10">
+                <Label Text="Your Busket" FontAttributes="Bold" FontSize="30" HorizontalOptions="Center"/>
+                <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+                    <Border BackgroundColor="White" WidthRequest="75" HorizontalOptions="End">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="Black"
+                                Opacity="0.5"
+                                Radius="10"
+                                Offset="10,10" />
+                        </Border.Shadow>
+                        <StackLayout Spacing="10" WidthRequest="75" HeightRequest="75"  HorizontalOptions="Center">
+                            <Label Text="Total" FontSize="20" FontAttributes="Bold"  HorizontalTextAlignment="Center"/>
+                            <Label Text="R0,00" FontSize="15" x:Name="lnltotalcart" HorizontalTextAlignment="Center"/>
+                        </StackLayout>
+                    </Border>
+                    <Border BackgroundColor="White" WidthRequest="75" HorizontalOptions="End">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="Black"
+                                Opacity="0.5"
+                                Radius="10"
+                                Offset="10,10" />
+                        </Border.Shadow>
+                        <StackLayout Spacing="10" WidthRequest="75" HeightRequest="75"  HorizontalOptions="Center">
+                            <Label Text="Items" FontSize="20" FontAttributes="Bold"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            <Label Text="0" FontSize="15" x:Name="lblItemscart" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        </StackLayout>
+                    </Border>
+                </HorizontalStackLayout>
+                <Border StrokeThickness="0" BackgroundColor="White">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Opacity="0.5"
+                 Brush="Black"
+                 Offset="10,10"
+                 Radius="10"/>
+                    </Border.Shadow>
+                    <CollectionView BackgroundColor="WhiteSmoke" SelectionMode="Single">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Spacing="20" Padding="10" HorizontalOptions="Center">
+                                    <Border StrokeThickness="0" BackgroundColor="White" HorizontalOptions="Start">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="20"/>
+                                        </Border.StrokeShape>
+                                        <Border.Shadow>
+                                            <Shadow Opacity="0.5"
+                                                     Brush="Black"
+                                                     Offset="10,10"
+                                                     Radius="10"/>
+                                        </Border.Shadow>
+                                        <StackLayout HorizontalOptions="Start" WidthRequest="{OnPlatform Android='390', iOS='390', Default='800'}" Spacing="10" Padding="10" Orientation="Horizontal">
+                                            <Border HorizontalOptions="Start">
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="25"/>
+                                                </Border.StrokeShape>
+                                                <Image Source="image.jpg" WidthRequest="{OnPlatform Android='140', iOS='140', Default='200'}" HeightRequest="{OnPlatform Android='120', iOS='120', Default='200'}" Aspect="AspectFill"/>
+                                            </Border>
+                                            <StackLayout Spacing="10" VerticalOptions="Center">
+                                                <Label Text="Drink" FontSize="24" FontAttributes="Bold"/>
+                                                <Label Text="R22,99" FontSize="18"/>
+                                            </StackLayout>
+                                            <StackLayout Spacing="5" VerticalOptions="Center">
+                                                <Label VerticalOptions="Start" Text="Quantity : x3" FontSize="20"/>
+                                                <StackLayout Spacing="5" VerticalOptions="End" Orientation="Horizontal">
+                                                    <Button TextColor="White" BackgroundColor="#66BB6A" Text="Change" FontAttributes="Bold" 
+                                                             WidthRequest="{OnPlatform Android='75', iOS='75', Default='200'}"
+                                                             VerticalOptions="End" FontSize="{OnPlatform Android='10',iOS='10',Default='30'}"/>
+                                                    <Button TextColor="White" BackgroundColor="#66BB6A" Text="Delete" FontAttributes="Bold"
+                                                            WidthRequest="{OnPlatform Android='75', iOS='75', Default='200'}"
+                                                            VerticalOptions="End" FontSize="{OnPlatform Android='10',iOS='10',Default='30'}"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Border>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Border>
+                <Border StrokeThickness="0" BackgroundColor="White" HorizontalOptions="Start">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Opacity="0.5"
+                 Brush="Black"
+                 Offset="10,10"
+                 Radius="10"/>
+                    </Border.Shadow>
+                    <StackLayout HorizontalOptions="Start" WidthRequest="{OnPlatform Android='390', iOS='390', Default='800'}" Spacing="10" Padding="10" Orientation="Horizontal">
+                        <Border HorizontalOptions="Start">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="25"/>
+                            </Border.StrokeShape>
+                            <Image Source="image.jpg" WidthRequest="{OnPlatform Android='140', iOS='140', Default='200'}" HeightRequest="{OnPlatform Android='120', iOS='120', Default='200'}" Aspect="AspectFill"/>
+                        </Border>
+                        <StackLayout Spacing="10" VerticalOptions="Center">
+                            <Label Text="Drink" FontSize="24" FontAttributes="Bold"/>
+                            <Label Text="R22,99" FontSize="18"/>
+                        </StackLayout>
+                        <StackLayout Spacing="5" VerticalOptions="Center">
+                            <Label VerticalOptions="Start" Text="Quantity : x3" FontSize="20"/>
+                            <StackLayout Spacing="5" VerticalOptions="End" Orientation="Horizontal">
+                                <Button TextColor="White" BackgroundColor="#66BB6A" Text="Change" FontAttributes="Bold" 
+                                         WidthRequest="{OnPlatform Android='75', iOS='75', Default='200'}"
+                                         VerticalOptions="End" FontSize="{OnPlatform Android='10',iOS='10',Default='30'}"/>
+                                <Button TextColor="White" BackgroundColor="#66BB6A" Text="Delete" FontAttributes="Bold"
+                                         WidthRequest="{OnPlatform Android='75', iOS='75', Default='200'}"
+                                         VerticalOptions="End" FontSize="{OnPlatform Android='10',iOS='10',Default='30'}"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </Border>
+                <Border WidthRequest="{OnPlatform Android='400', iOS='400', Default='550'}">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+            Opacity="0.5"
+            Radius="10"
+            Offset="10,10" />
+                    </Border.Shadow>
+                    <Button TextColor="White" BackgroundColor="#66BB6A" Text="Pay And Go!" FontAttributes="Bold" FontSize="30" 
+            WidthRequest="{OnPlatform Android='440', iOS='440', Default='550'}" HorizontalOptions="Center"
+             />
+                </Border>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage>
+</TabbedPage>

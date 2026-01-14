@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<FlyoutPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuickPick.QuickPickEmployer.Views.DashBoard"
+            xmlns:charts="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+             Title="DashBoard" FlyoutLayoutBehavior="Popover">
+    <FlyoutPage.Flyout>
+        <ContentPage Title="Menu" WidthRequest="400">
+            <StackLayout Spacing="10" Padding="10" HorizontalOptions="Start">
+                <Label Text="Navigation" FontSize="30" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <Border WidthRequest="200" HorizontalOptions="Start" StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25"/>
+                    </Border.StrokeShape>
+                    <StackLayout Orientation="Horizontal" Spacing="10">
+                        <Image Source="homei.webp" HeightRequest="40"/>
+                        <Button TextColor="Black" BackgroundColor="White" FontAttributes="Italic" Text="Home" FontSize="20" 
+                        WidthRequest="100" HorizontalOptions="Center" Clicked="HomeClicked"/>
+                    </StackLayout>
+                </Border>
+                <Border WidthRequest="200" StrokeThickness="0" HorizontalOptions="Start">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25"/>
+                    </Border.StrokeShape>
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="add.png" HeightRequest="40"/>
+                        <Button TextColor="Black" BackgroundColor="White" FontAttributes="Italic" Text="Add Aisle" FontSize="20" 
+                        WidthRequest="150" HorizontalOptions="Center" Clicked="AddAislesClicked"/>
+                    </StackLayout>
+                </Border>
+                <Border WidthRequest="200" StrokeThickness="0" HorizontalOptions="Start">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25"/>
+                    </Border.StrokeShape>
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="add.png" HeightRequest="40"/>
+                        <Button TextColor="Black" BackgroundColor="White" FontAttributes="Italic" Text="Add Items" FontSize="20" 
+                        WidthRequest="150" HorizontalOptions="Center" Clicked="AddItemsClicked"/>
+                    </StackLayout>
+                </Border>
+                <Border WidthRequest="300" StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25"/>
+                    </Border.StrokeShape>
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="transaction.webp" HeightRequest="40"/>
+                        <Button TextColor="Black" BackgroundColor="White" FontAttributes="Italic" Text="Transactions List" FontSize="20" 
+                         WidthRequest="200" HorizontalOptions="Center" Clicked="TransactionListClicked"/>
+                    </StackLayout>
+                </Border>
+                <Border WidthRequest="300" StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25"/>
+                    </Border.StrokeShape>
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="transaction.webp" HeightRequest="40"/>
+                        <Button TextColor="Black" BackgroundColor="White" FontAttributes="Italic" Text="Today's Transactions" FontSize="20" 
+                             WidthRequest="222" HorizontalOptions="Center" Clicked="TodayTransactionsClicked"/>
+                    </StackLayout>
+                </Border>
+                <Border WidthRequest="300" StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25"/>
+                    </Border.StrokeShape>
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="income.png" HeightRequest="40"/>
+                        <Button TextColor="Black" BackgroundColor="White" FontAttributes="Italic" Text="Sales Analysis" FontSize="20" 
+                             WidthRequest="170" HorizontalOptions="Center" Clicked="SalesAnalysisClicked"/>
+                    </StackLayout>
+                </Border>
+                <Border WidthRequest="200" HorizontalOptions="Start" StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25"/>
+                    </Border.StrokeShape>
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="items.jpg" HeightRequest="40"/>
+                        <Button TextColor="Black" BackgroundColor="White" FontAttributes="Italic" Text="Items" FontSize="20" 
+                                WidthRequest="100" HorizontalOptions="Center" Clicked="ItemsClicked"/>
+                    </StackLayout>
+                </Border>
+                <Border WidthRequest="300" StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25"/>
+                    </Border.StrokeShape>
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="feedback.jpg" HeightRequest="40"/>
+                        <Button TextColor="Black" BackgroundColor="White" FontAttributes="Italic" Text="Feed Back" FontSize="20" 
+              WidthRequest="150" HorizontalOptions="Center"/>
+                    </StackLayout>
+                </Border>
+            </StackLayout>
+        </ContentPage>
+    </FlyoutPage.Flyout>
+</FlyoutPage>

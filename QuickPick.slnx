@@ -1,0 +1,32 @@
+<Solution>
+  <Folder Name="/Apis/" />
+  <Folder Name="/Apis/BlobApi/">
+    <Project Path="QuickPickBlobService/QuickPickBlobService.csproj" Id="db4d76cd-9e17-4739-9f67-1a347a55e205" />
+    <Project Path="QuicpPickBlobApi/QuicpPickBlobApi.csproj" Id="a947380c-8e20-4903-9d7c-cd1a7d582f6e" />
+  </Folder>
+  <Folder Name="/Apis/DbApi/">
+    <Project Path="QuickPickDBApi/QuickPickDBApi.csproj" Id="2db3b9e7-e09d-4c96-aea4-1bd9649325d8" />
+    <Project Path="QuickPickDBApiService/QuickPickDBApiService.csproj" Id="d524700c-96f2-4366-895b-541b0a989db8" />
+  </Folder>
+  <Folder Name="/Apis/Security/">
+    <Project Path="SecurityApi/SecurityApi.csproj" Id="8d394813-0de8-4acb-a273-ffb7fd6d7cfa" />
+  </Folder>
+  <Folder Name="/Apis/SignlarApi/">
+    <Project Path="QuickPickSignlaRApi/QuickPickSignlaRApi.csproj" Id="206ab714-2d8c-4e74-951c-c62a58324d81" />
+    <Project Path="QuickPickSignlaRService/QuickPickSignlaRService.csproj" Id="a2211548-a32c-4040-a2db-f3473f4006d4" />
+  </Folder>
+  <Folder Name="/Apps/">
+    <Project Path="Order_Distribution/Order_Distribution.csproj" Id="571d8c51-ff33-4a37-95d5-959eaa39665b">
+      <Deploy />
+    </Project>
+    <Project Path="QuickPick_Customer/QuickPick_Customer.csproj" Id="ced175cd-edbb-4547-b486-eaba26cd57cf">
+      <Deploy />
+    </Project>
+    <Project Path="QuickPick_Employer/QuickPick_Employer.csproj" Id="c3ce7591-5c97-4ad8-a870-a54a7bea920c">
+      <Deploy />
+    </Project>
+    <Project Path="QuickPick_Employye_Packing/QuickPick_Employye_Packing.csproj" Id="1761d829-1e10-4c2a-8a50-eb7bd46377d3">
+      <Deploy />
+    </Project>
+  </Folder>
+</Solution>

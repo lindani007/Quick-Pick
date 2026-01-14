@@ -1,0 +1,6 @@
+@QuickPickSignlaRApi_HostAddress = http://localhost:5219
+
+GET {{QuickPickSignlaRApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuickPick_Employer.QuickPickEmployer.Views.DetailedTRansaction"
+             Title="Detailed TRansaction" BackgroundColor="WhiteSmoke">
+    <ScrollView>
+        <StackLayout Spacing="15" HorizontalOptions="Center">
+            <Label Text="Detailed Transaction" FontAttributes="Bold" FontSize="30" HorizontalOptions="Center">
+                <Label.Shadow>
+                    <Shadow Opacity="0.5"
+            Offset="10,10"
+            Radius="10"
+            Brush="Black"/>
+                </Label.Shadow>
+            </Label>
+            <StackLayout Orientation="Horizontal" Spacing="20">
+                <Label Text="Item Name" x:Name="lblName" FontSize="30" Grid.Column="0">
+                    <Label.Shadow>
+                        <Shadow Opacity="0.5"
+            Offset="10,10"
+            Radius="10"
+            Brush="Black"/>
+                    </Label.Shadow>
+                </Label>
+                <Label Text="Bought On" x:Name="lblDate" FontSize="30" Grid.Column="1">
+                    <Label.Shadow>
+                        <Shadow Opacity="0.5"
+            Offset="10,10"
+            Radius="10"
+            Brush="Black"/>
+                    </Label.Shadow>
+                </Label>
+                <Label Text="Price" x:Name="lblPrice" FontSize="30" Grid.Column="2">
+                    <Label.Shadow>
+                        <Shadow Opacity="0.5"
+            Offset="10,10"
+            Radius="10"
+            Brush="Black"/>
+                    </Label.Shadow>
+                </Label>
+                <Label Text="Bought Quantity" x:Name="lblquantity" FontSize="30" Grid.Column="3">
+                    <Label.Shadow>
+                        <Shadow Opacity="0.5"
+            Offset="10,10"
+            Radius="10"
+            Brush="Black"/>
+                    </Label.Shadow>
+                </Label>
+                <Label Text="Earned" x:Name="lblearned" FontSize="30" Grid.Column="4">
+                    <Label.Shadow>
+                        <Shadow Opacity="0.5"
+            Offset="10,10"
+            Radius="10"
+            Brush="Black"/>
+                    </Label.Shadow>
+                </Label>
+                <Label Text="Packed By" x:Name="lblPackedBy" FontSize="30" Grid.Column="5">
+                    <Label.Shadow>
+                        <Shadow Opacity="0.5"
+            Offset="10,10"
+            Radius="10"
+            Brush="Black"/>
+                    </Label.Shadow>
+                </Label>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

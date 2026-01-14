@@ -1,0 +1,6 @@
+@QuicpPickBlobApi_HostAddress = http://localhost:5003
+
+GET {{QuicpPickBlobApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

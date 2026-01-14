@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Order_Distribution.OrderDistribution.Models"
+             xmlns:mvvm="clr-namespace:Order_Distribution.OrderDistribution.ViwewModels"
+             x:Class="Order_Distribution.OrderDistribution.Views.ReadyOrders"
+             Title="ReadyOrders" x:DataType="mvvm:OrdersViewModel">
+    <ScrollView>
+        <StackLayout Spacing="20" Padding="15">
+            <Label Text="Ready Orders"
+                   FontSize="Header" HorizontalOptions="Center"
+    FontAttributes="Bold">
+                <Label.Shadow>
+                    <Shadow Brush="Black"
+         Opacity="0.5"
+         Offset="10,10"
+         Radius="10"/>
+                </Label.Shadow>
+            </Label>
+            <Label Text="New orders that are ready for distribution"
+               FontSize="Header" HorizontalOptions="Center"
+FontAttributes="Bold">
+                <Label.Shadow>
+                    <Shadow Brush="Black"
+     Opacity="0.5"
+     Offset="10,10"
+     Radius="10"/>
+                </Label.Shadow>
+            </Label>
+            <Border>
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"/>
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Opacity="0.5"
+                         Brush="Black"
+                         Offset="10,10"
+                         Radius="10"/>
+                </Border.Shadow>
+                <CollectionView ItemsLayout="VerticalGrid,5"
+                        ItemsSource="{Binding Orders}" SelectionMode="Single"
+                        SelectedItem="{Binding SelectedOrder}"
+                        SelectionChangedCommand="{Binding GetSelectedOrderCommand}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="vm:Order">
+                            <StackLayout>
+                                <Border BackgroundColor="White" StrokeThickness="0" >
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="20"/>
+                                    </Border.StrokeShape>
+                                    <Border.Shadow>
+                                        <Shadow Opacity="0.5"
+                                                Brush="Black"
+                                                Offset="10,10"
+                                                Radius="10"/>
+                                    </Border.Shadow>
+                                    <StackLayout Spacing="15" Padding="5">
+                                        <Label Text="{Binding OrderNumber}" FontSize="20" FontAttributes="Bold"/>
+                                        <Label Text="{Binding OrderedItemsQty,StringFormat='Quantity: {0}'}" FontSize="20"/>
+                                    </StackLayout>
+                                </Border>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Border>
+            <Label Text="Old Orders that are not collected"
+               FontSize="Header" HorizontalOptions="Center"
+FontAttributes="Bold">
+                <Label.Shadow>
+                    <Shadow Brush="Black"
+     Opacity="0.5"
+     Offset="10,10"
+     Radius="10"/>
+                </Label.Shadow>
+            </Label>
+            <Border>
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"/>
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Opacity="0.5"
+                         Brush="Black"
+                         Offset="10,10"
+                         Radius="10"/>
+                </Border.Shadow>
+                <CollectionView ItemsLayout="VerticalGrid,10"
+                        ItemsSource="{Binding OrdersNotCollected}"
+                        SelectedItem="{Binding SelectedOrder2}" SelectionMode="Single"
+                        SelectionChangedCommand="{Binding GetSelectedOrderInUncollectedOrdersCommand}">
+                    <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="vm:Order">
+                        <StackLayout>
+                            <Border BackgroundColor="White" StrokeThickness="0" >
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="20"/>
+                                </Border.StrokeShape>
+                                <Border.Shadow>
+                                    <Shadow Opacity="0.5"
+                                                Brush="Black"
+                                                Offset="10,10"
+                                                Radius="10"/>
+                                </Border.Shadow>
+                                <StackLayout Spacing="15" Padding="5">
+                                    <Label Text="{Binding OrderNumber}" FontSize="20" FontAttributes="Bold"/>
+                                    <Label Text="{Binding OrderedItemsQty,StringFormat='Quantity : {0}'}" FontSize="20"/>
+                                </StackLayout>
+                            </Border>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            </Border>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

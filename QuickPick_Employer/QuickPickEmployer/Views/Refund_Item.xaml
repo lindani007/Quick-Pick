@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuickPick_Employer.QuickPickEmployer.Views.Refund_Item"
+             xmlns:mvvm="clr-namespace:QuickPick_Employer.QuickPickEmployer.ViewModel"
+             Title="Refund_Item" x:DataType="mvvm:TransactionListViewModel">
+    <ScrollView>
+        <StackLayout Spacing="20" HorizontalOptions="Center">
+            <Label Text="{Binding ItemName}" FontSize="Header" FontAttributes="Bold" HorizontalOptions="Center">
+                <Label.Shadow>
+                    <Shadow Brush="Black"
+          Opacity="0.5"
+          Radius="10"
+          Offset="10,10" />
+                </Label.Shadow>
+            </Label>
+            <Border WidthRequest="500">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="30"/>
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Offset="10,10"
+                Opacity="0.5"
+                Brush="Black"
+                Radius="10"/>
+                </Border.Shadow>
+                <Image Source="{Binding ImageSourceUrl}" WidthRequest="500" VerticalOptions="Start"/>
+            </Border>
+            <Label Text="{Binding Price, StringFormat='Total Amount For This Item : R {0:N2}'}" FontSize="30" HorizontalOptions="Center">
+                <Label.Shadow>
+                    <Shadow Brush="Black"
+                           Opacity="0.5"
+                           Radius="10"
+                           Offset="10,10" />
+                </Label.Shadow>
+            </Label>
+            <Label Text="{Binding Quantity,StringFormat='Ordered Quantity : {0} By The Customer'}" FontSize="30" HorizontalOptions="Center">
+                <Label.Shadow>
+                    <Shadow Brush="Black"
+              Opacity="0.5"
+              Radius="10"
+              Offset="10,10" />
+                </Label.Shadow>
+            </Label>
+            <Border WidthRequest="395">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="25"/>
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Brush="Black"
+                                        Opacity="0.5"
+                                        Radius="10"
+                                        Offset="10,10" />
+                </Border.Shadow>
+                <StackLayout Padding="10" BackgroundColor="White">
+                    <Label Text="Code For This Order" FontSize="20"/>
+                    <Border WidthRequest="370">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20"/>
+                        </Border.StrokeShape>
+                        <Entry Placeholder="Code For This Order" WidthRequest="{OnPlatform Android='300', iOS='300', Default='370'}"
+                    HorizontalTextAlignment="Center" IsPassword="True" Keyboard="Numeric"  Text="{Binding Code}" FontSize="20"/>
+                    </Border>
+                </StackLayout>
+            </Border>
+            <Label Text="{Binding EmptyQuantity}" TextColor="Red">
+                <Label.Shadow>
+                    <Shadow Opacity="0.5"
+                Offset="10,10"
+                Radius="10"
+                Brush="Black"/>
+                </Label.Shadow>
+            </Label>
+            <Border WidthRequest="{OnPlatform Android='400', iOS='400', Default='550'}">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="25"/>
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Brush="Black"
+          Opacity="0.5"
+          Radius="10"
+          Offset="10,10" />
+                </Border.Shadow>
+                <Button TextColor="White" BackgroundColor="#66BB6A" Text="Refund" FontAttributes="Bold" FontSize="30" 
+          WidthRequest="{OnPlatform Android='440', iOS='440', Default='550'}" HorizontalOptions="Center"
+          Command="{Binding RefundCommand}" />
+            </Border>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

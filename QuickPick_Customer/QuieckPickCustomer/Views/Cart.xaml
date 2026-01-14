@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuickPick_Customer.QuieckPickCustomer.Views.Cart"
+             xmlns:mvvm="clr-namespace:QuickPick_Customer.QuieckPickCustomer.ViewModels"
+             xmlns:vm="clr-namespace:QuickPick_Customer.QuieckPickCustomer.Models"
+             Title="Cart" x:DataType="mvvm:ChooseAiselViewModel"
+             BackgroundColor="WhiteSmoke" x:Name="PageRoot">
+    <ScrollView>
+        <StackLayout Spacing="20" Padding="10">
+            <Label Text="Your Busket" FontAttributes="Bold" FontSize="30" HorizontalOptions="Center"/>
+            <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+                <Border BackgroundColor="White" WidthRequest="75" HorizontalOptions="End">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="15"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                         Opacity="0.5"
+                         Radius="10"
+                         Offset="10,10" />
+                    </Border.Shadow>
+                    <StackLayout Spacing="10" WidthRequest="75" HeightRequest="75"  HorizontalOptions="Center">
+                        <Label Text="Total" FontSize="20" FontAttributes="Bold"  HorizontalTextAlignment="Center"/>
+                        <Label Text="{Binding TotalOrdered,StringFormat='R {0:N2}'}" FontSize="15" x:Name="lnltotalcart" HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                </Border>
+                <Border BackgroundColor="White" WidthRequest="75" HorizontalOptions="End">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="15"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                         Opacity="0.5"
+                         Radius="10"
+                         Offset="10,10" />
+                    </Border.Shadow>
+                    <StackLayout Spacing="10" WidthRequest="75" HeightRequest="75"  HorizontalOptions="Center">
+                        <Label Text="Items" FontSize="20" FontAttributes="Bold"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        <Label Text="{Binding Quantity}" FontSize="15" x:Name="lblItemscart" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    </StackLayout>
+                </Border>
+            </HorizontalStackLayout>
+            <Border StrokeThickness="0" >
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"/>
+                </Border.StrokeShape>
+                <CollectionView HorizontalOptions="Center" ItemsSource="{Binding OrderedItems}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="vm:Item">
+                            <StackLayout Spacing="20" Padding="10" HorizontalOptions="Center">
+                                <Border StrokeThickness="0" BackgroundColor="White" HorizontalOptions="Start">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="20"/>
+                                    </Border.StrokeShape>
+                                    <Border.Shadow>
+                                        <Shadow Opacity="0.5"
+                                              Brush="Black"
+                                              Offset="10,10"
+                                              Radius="10"/>
+                                    </Border.Shadow>
+                                    <StackLayout HorizontalOptions="Start" WidthRequest="{OnPlatform Android='390', iOS='390', Default='800'}" Spacing="10" Padding="10" Orientation="Horizontal">
+                                        <Border HorizontalOptions="Start">
+                                            <Border.StrokeShape>
+                                                <RoundRectangle CornerRadius="25"/>
+                                            </Border.StrokeShape>
+                                            <Image Source="{Binding ImageSource}" WidthRequest="{OnPlatform Android='140', iOS='140', Default='200'}" HeightRequest="{OnPlatform Android='120', iOS='120', Default='200'}" Aspect="AspectFill"/>
+                                        </Border>
+                                        <StackLayout Spacing="10" VerticalOptions="Center">
+                                            <Label Text="{Binding ItemName}" FontSize="24" FontAttributes="Bold"/>
+                                            <Label Text="{Binding ItemPrice,StringFormat='R {0:N2}'}" FontSize="18"/>
+                                        </StackLayout>
+                                        <StackLayout Spacing="5" VerticalOptions="Center">
+                                            <HorizontalStackLayout>
+                                                <Label Text="Quantity : x" FontSize="20"/>
+                                                <Label VerticalOptions="Start" Text="{Binding RequestedQuantity}" FontSize="20"/>
+                                            </HorizontalStackLayout>
+                                            <StackLayout Spacing="5" VerticalOptions="End" Orientation="Horizontal">
+                                                <Button TextColor="White" BackgroundColor="#66BB6A" Text="Change" FontAttributes="Bold" 
+                                                      WidthRequest="{OnPlatform Android='75', iOS='75', Default='200'}"
+                                                      VerticalOptions="End" FontSize="{OnPlatform Android='10',iOS='10',Default='30'}"
+                                                        Command="{Binding BindingContext.ChangeItemCommand, Source={x:Reference PageRoot}}"
+                                                        CommandParameter="{Binding .}"/>
+                                                <Button TextColor="White" BackgroundColor="#66BB6A" Text="Delete" FontAttributes="Bold"
+                                                     WidthRequest="{OnPlatform Android='75', iOS='75', Default='200'}"
+                                                     VerticalOptions="End" FontSize="{OnPlatform Android='10',iOS='10',Default='30'}"
+                                                        Command="{Binding BindingContext.DeleteItemCommand, Source={x:Reference PageRoot}}" 
+                                                        CommandParameter="{Binding .}"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Border>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Border>
+            <Border WidthRequest="{OnPlatform Android='400', iOS='400', Default='550'}">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="25"/>
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Brush="Black"
+          Opacity="0.5"
+          Radius="10"
+          Offset="10,10" />
+                </Border.Shadow>
+                <Button TextColor="White" BackgroundColor="#66BB6A" Text="Pay and Go!!!" FontAttributes="Bold" FontSize="30" 
+                        WidthRequest="{OnPlatform Android='440', iOS='440', Default='550'}" HorizontalOptions="Center"
+                        Command="{Binding PayAndGoCommand}"/>
+            </Border>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
