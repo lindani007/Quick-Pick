@@ -85,13 +85,18 @@ Security notes:
 ## Usage
 -	QuickPick_Employer — store/staff app (manage inventory, create/edit items, view incoming orders, mark readiness for pick‑up). Integrates with APIs to change product data and images.
 	- This is the page that you land in when you start QuickPick_Employer app.
+   
+
+https://github.com/user-attachments/assets/16c3da60-2a35-45b7-ac8f-9efa0f0c814a
+
+
 	- The app allows you to add new products with images, on their respective aisles, edit existing products, and view incoming orders.
 	- The app uses the ImageStorer API to upload product images to blob storage.
 	- The app uses QuickPickDBApi to manage product and order data.
 	- The app uses SignalR to receive real-time order updates.
 
 - QuickPick_Customer — customer-facing app (browse items, place orders). Integrates with APIs to fetch product data and images.
-	- This is the page that you land in when you start QuickPick_Customer app.
+	- This is the page that you land in when you start QuickPick_Customer app and click Get Started.
    
 
 https://github.com/user-attachments/assets/bcf7bff1-4e11-48f1-b54e-098a522d5239
@@ -163,5 +168,6 @@ Open an issue in this repository for bugs or feature requests. Add maintainers' 
 - .NET and .NET MAUI teams
 
 - Any third-party libraries used throughout the projects
+
 
 
