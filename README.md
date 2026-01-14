@@ -165,7 +165,11 @@ This repository is provided under the MIT License.
 ---
 
 ## Contact
-Open an issue in this repository for bugs or feature requests. Add maintainers' contact info here (name and email) if you want direct contact instructions.
+Project maintainer: Lindani  
+
+Email : lindanidev@outlook.com 
+
+Repository: https://github.com/lindani007/Quick-Pick.git
 
 ---
 
@@ -174,6 +178,7 @@ Open an issue in this repository for bugs or feature requests. Add maintainers' 
 - .NET and .NET MAUI teams
 
 - Any third-party libraries used throughout the projects
+
 
 
 
